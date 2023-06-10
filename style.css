@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+#scanner{
+display: flex;
+justify-content: center;
+align-items: center;
+row-gap: 1px;
+} 
+#scanner >div{
+    width: 70px;
+    height: 30px;
+    border: 2px solid rgb(255, 16, 3);
+    position: relative;
+    top: 350px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+   
+}
+.controller{
+      display: flex;
+}
+.controller>div>button{
+    width: 60px;
+    height: 40px;
+    background-color: white;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}

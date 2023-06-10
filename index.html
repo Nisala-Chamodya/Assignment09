@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Theme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controller">
+        <div class="start-btn">
+            <button id="startBtn">Start</button>
+        </div>
+        <div class="stop-btn">
+            <button id="stopBtn">Stop</button>
+        </div>
+    </div>
+    <section id="scanner">
+        <div class="scanner__node"></div>
+        <div class="scanner__node"></div>
+        <div class="scanner__node"></div>
+        <div class="scanner__node"></div>
+        <div class="scanner__node"></div>
+        <div class="scanner__node"></div>
+        <div class="scanner__node"></div>
+    </section>
+    <audio src="assets/audio/Knight Rider Sms ! Knight Rider ! Theme.mp3" id="audio"></audio>
+    <script src="assets/lib/jquery-3.6.4.min.js"></script>
+    <script>
+        var lightNumber=1;
+        var direction="RIGHT";
+        var lights = $('.scanner__node');
+        console.log(lights);
+
+        let time;
+        $('#startBtn').on("click",()=>{
+            
+                $('audio')[0].play();
+          
+            clearInterval(time);
+            time=setInterval(updateLights,100);
+
+
+
+        });
+        $('#stopBtn').on("click",()=>{
+             $('audio')[0].pause();
+            clearInterval(time);
+           
+        });
+        
+        
+
+        function updateLights(){
+            console.log("updatedd");
+
+            $(".scanner__node").css({background: 'black'});
+
+
+            lights[lightNumber].style.background= "red";
+           
+          
+
+            if(lightNumber > 0){
+                 lights[lightNumber - 1].style.background= "#FF0000";
+            }
+            if(lightNumber < 6){
+         lights[lightNumber +1  ].style.background= "#FF0000";
+            }
+            if(lightNumber === 6){
+                    direction ="LEFT";
+            }
+              if(lightNumber === 0){
+                    direction ="RIGHT";
+            }
+            if(direction === 'RIGHT'){
+                lightNumber++;
+            }
+            if(direction === 'LEFT'){
+                lightNumber--;
+            }
+            
+        }
+       
+    </script>
+
+    
+</body>
+</html>
